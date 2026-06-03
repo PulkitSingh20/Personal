@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Happy Birthday" },
+      { name: "description", content: "Birthday Bloom is a vibrant, aesthetic web application designed to celebrate a special birthday with personalized charm." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Happy Birthday" },
+      { property: "og:description", content: "Birthday Bloom is a vibrant, aesthetic web application designed to celebrate a special birthday with personalized charm." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Happy Birthday" },
+      { name: "twitter:description", content: "Birthday Bloom is a vibrant, aesthetic web application designed to celebrate a special birthday with personalized charm." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0dfe14fa-caf6-474a-a044-28d86bce56ff/id-preview-c8f1108e--8ffcc59e-480f-488f-a67e-d9a412e37afe.lovable.app-1780485426763.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0dfe14fa-caf6-474a-a044-28d86bce56ff/id-preview-c8f1108e--8ffcc59e-480f-488f-a67e-d9a412e37afe.lovable.app-1780485426763.png" },
     ],
     links: [
       {
