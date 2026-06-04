@@ -7,7 +7,8 @@ import m5 from "@/assets/shushh7.jpeg.asset.json";
 import m6 from "@/assets/shushh10.jpeg.asset.json";
 import m7 from "@/assets/shushh8.jpeg.asset.json";
 import m8 from "@/assets/shushh9.jpeg.asset.json";
-import m9 from "@/assets/shushh7b.jpeg.asset.json";
+
+
 
 const ITEMS = [
   { src: m1.url, caption: "sunlit & smiling", rot: -4 },
