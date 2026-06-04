@@ -7,7 +7,8 @@ import m5 from "@/assets/shushh7.jpeg.asset.json";
 import m6 from "@/assets/shushh10.jpeg.asset.json";
 import m7 from "@/assets/shushh8.jpeg.asset.json";
 import m8 from "@/assets/shushh9.jpeg.asset.json";
-import m9 from "@/assets/shushh7b.jpeg.asset.json";
+
+
 
 const ITEMS = [
   { src: m1.url, caption: "sunlit & smiling", rot: -4 },
@@ -17,7 +18,6 @@ const ITEMS = [
   { src: m3.url, caption: "golden hour, you", rot: -2 },
   { src: m8.url, caption: "hearts everywhere ♡", rot: 4 },
   { src: m4.url, caption: "that little smile", rot: 4 },
-  { src: m9.url, caption: "neon glow", rot: -3 },
   { src: m5.url, caption: "warm light, warmer you", rot: -3 },
 ];
 
