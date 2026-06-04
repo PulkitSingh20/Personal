@@ -17,7 +17,6 @@ const ITEMS = [
   { src: m3.url, caption: "golden hour, you", rot: -2 },
   { src: m8.url, caption: "hearts everywhere ♡", rot: 4 },
   { src: m4.url, caption: "that little smile", rot: 4 },
-  { src: m9.url, caption: "neon glow", rot: -3 },
   { src: m5.url, caption: "warm light, warmer you", rot: -3 },
 ];
 
