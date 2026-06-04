@@ -1,8 +1,21 @@
+import { useState } from "react";
 import floral from "@/assets/hero-floral.jpg.asset.json";
 
 const SPARKLES = Array.from({ length: 28 });
+const BURST = Array.from({ length: 36 });
+const COLORS = ["#e88aab", "#f8c8d8", "#c45c7c", "#fce5ee", "#ffd1dc", "#ffffff"];
 
 export function Hero() {
+  const [burstId, setBurstId] = useState(0);
+
+  const handleOpenWishes = () => {
+    setBurstId((n) => n + 1);
+    // let the burst be visible briefly before the smooth scroll
+    setTimeout(() => {
+      document.getElementById("cake")?.scrollIntoView({ behavior: "smooth" });
+    }, 350);
+  };
+
   return (
     <section className="relative z-10 flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
       {/* Floral background */}
@@ -13,7 +26,6 @@ export function Hero() {
           aria-hidden
           className="h-full w-full object-cover"
         />
-        {/* soft wash so text stays readable */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/80" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(255,240,245,0.45)_70%)]" />
       </div>
@@ -73,14 +85,52 @@ export function Hero() {
         A special day for a truly special person.
       </p>
 
-      <a
-        href="#cake"
-        className="group mt-12 inline-flex animate-fade-up items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-[0_15px_40px_-10px_rgba(196,92,124,0.65)] transition-all hover:scale-105 hover:shadow-[0_20px_50px_-10px_rgba(196,92,124,0.8)] sm:text-base"
-        style={{ animationDelay: "0.55s" }}
-      >
-        Open My Wishes
-        <span className="transition-transform group-hover:translate-x-1">→</span>
-      </a>
+      <div className="relative mt-12">
+        {/* Confetti + sparkle burst, re-keyed on each click */}
+        {burstId > 0 && (
+          <div
+            key={burstId}
+            className="pointer-events-none absolute left-1/2 top-1/2 z-20 h-0 w-0"
+            aria-hidden
+          >
+            {BURST.map((_, i) => {
+              const angle = (i / BURST.length) * Math.PI * 2;
+              const dist = 90 + (i % 6) * 25;
+              const tx = Math.cos(angle) * dist;
+              const ty = Math.sin(angle) * dist - 30;
+              const c = COLORS[i % COLORS.length];
+              const isSparkle = i % 3 === 0;
+              return (
+                <span
+                  key={i}
+                  className="animate-confetti absolute block"
+                  style={{
+                    background: c,
+                    width: isSparkle ? "6px" : "8px",
+                    height: isSparkle ? "6px" : "10px",
+                    borderRadius: isSparkle ? "9999px" : "2px",
+                    boxShadow: isSparkle
+                      ? `0 0 12px 3px ${c}`
+                      : "0 2px 6px rgba(196,92,124,0.35)",
+                    ["--tx" as string]: `${tx}px`,
+                    ["--ty" as string]: `${ty}px`,
+                  }}
+                />
+              );
+            })}
+          </div>
+        )}
+
+        <button
+          type="button"
+          onClick={handleOpenWishes}
+          className="group inline-flex animate-fade-up items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-[0_15px_40px_-10px_rgba(196,92,124,0.65)] transition-all hover:scale-105 hover:shadow-[0_20px_50px_-10px_rgba(196,92,124,0.8)] sm:text-base"
+          style={{ animationDelay: "0.55s" }}
+        >
+          Open My Wishes
+          <span className="transition-transform group-hover:translate-x-1">→</span>
+        </button>
+      </div>
     </section>
   );
 }
