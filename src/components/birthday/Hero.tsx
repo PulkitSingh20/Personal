@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import floral from "@/assets/hero-floral.jpg.asset.json";
 
 const SPARKLES = Array.from({ length: 28 });
@@ -7,13 +8,14 @@ const COLORS = ["#e88aab", "#f8c8d8", "#c45c7c", "#fce5ee", "#ffd1dc", "#ffffff"
 
 export function Hero() {
   const [burstId, setBurstId] = useState(0);
+  const navigate = useNavigate();
 
   const handleOpenWishes = () => {
     setBurstId((n) => n + 1);
-    // let the burst be visible briefly before the smooth scroll
+    // let the burst be visible briefly before navigating to the wishes page
     setTimeout(() => {
-      document.getElementById("cake")?.scrollIntoView({ behavior: "smooth" });
-    }, 350);
+      navigate({ to: "/wishes" });
+    }, 500);
   };
 
   return (
