@@ -1,10 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Petals } from "@/components/birthday/Petals";
 import { Hero } from "@/components/birthday/Hero";
-import { Cake } from "@/components/birthday/Cake";
-import { Reasons } from "@/components/birthday/Reasons";
-import { Memories } from "@/components/birthday/Memories";
-import { Wishes } from "@/components/birthday/Wishes";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,13 +35,6 @@ function BirthdayPage() {
     <main className="relative min-h-screen overflow-hidden">
       <Petals />
       <Hero />
-      <Cake />
-      <Reasons />
-      <Memories />
-      <Wishes />
-      <footer className="relative z-10 py-10 text-center text-xs tracking-[0.3em] text-accent/70 uppercase">
-        made with <span className="text-accent">♡</span> just for you
-      </footer>
     </main>
   );
 }
