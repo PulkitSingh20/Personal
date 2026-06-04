@@ -4,12 +4,20 @@ import m2 from "@/assets/shushh6.jpeg.asset.json";
 import m3 from "@/assets/shushh5.jpeg.asset.json";
 import m4 from "@/assets/shushh3.jpeg.asset.json";
 import m5 from "@/assets/shushh7.jpeg.asset.json";
+import m6 from "@/assets/shushh10.jpeg.asset.json";
+import m7 from "@/assets/shushh8.jpeg.asset.json";
+import m8 from "@/assets/shushh9.jpeg.asset.json";
+import m9 from "@/assets/shushh7b.jpeg.asset.json";
 
 const ITEMS = [
   { src: m1.url, caption: "sunlit & smiling", rot: -4 },
-  { src: m2.url, caption: "flower in your hair", rot: 3 },
+  { src: m6.url, caption: "flower-in-your-hair kind of day", rot: 2 },
+  { src: m2.url, caption: "petals & you", rot: 3 },
+  { src: m7.url, caption: "soft, just you", rot: -3 },
   { src: m3.url, caption: "golden hour, you", rot: -2 },
-  { src: m4.url, caption: "soft little smile", rot: 4 },
+  { src: m8.url, caption: "hearts everywhere ♡", rot: 4 },
+  { src: m4.url, caption: "that little smile", rot: 4 },
+  { src: m9.url, caption: "neon glow", rot: -3 },
   { src: m5.url, caption: "warm light, warmer you", rot: -3 },
 ];
 
