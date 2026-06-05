@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Petals } from "@/components/birthday/Petals";
 import { Cake } from "@/components/birthday/Cake";
 import { Reasons } from "@/components/birthday/Reasons";
