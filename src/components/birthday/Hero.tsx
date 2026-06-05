@@ -8,18 +8,23 @@ const COLORS = ["#e88aab", "#f8c8d8", "#c45c7c", "#fce5ee", "#ffd1dc", "#ffffff"
 
 export function Hero() {
   const [burstId, setBurstId] = useState(0);
+  const [leaving, setLeaving] = useState(false);
   const navigate = useNavigate();
 
   const handleOpenWishes = () => {
     setBurstId((n) => n + 1);
-    // let the burst be visible briefly before navigating to the wishes page
+    setTimeout(() => setLeaving(true), 350);
     setTimeout(() => {
       navigate({ to: "/wishes" });
-    }, 500);
+    }, 1000);
   };
 
   return (
-    <section className="relative z-10 flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
+    <section
+      className={`relative z-10 flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center transition-all duration-700 ease-out ${
+        leaving ? "-translate-y-6 opacity-0 blur-sm" : "translate-y-0 opacity-100"
+      }`}
+    >
       {/* Floral background */}
       <div className="absolute inset-0 -z-10">
         <img

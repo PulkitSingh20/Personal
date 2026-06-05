@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Petals } from "@/components/birthday/Petals";
 import { Cake } from "@/components/birthday/Cake";
 import { Reasons } from "@/components/birthday/Reasons";
@@ -26,8 +27,18 @@ export const Route = createFileRoute("/wishes")({
 });
 
 function WishesPage() {
+  const [entered, setEntered] = useState(false);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main
+      className={`relative min-h-screen overflow-hidden transition-all duration-700 ease-out ${
+        entered ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      }`}
+    >
       <Petals />
 
       <div className="relative z-20 px-6 pt-8">
