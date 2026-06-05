@@ -70,19 +70,26 @@ export function Hero() {
         a little something, just for you
       </p>
 
-      <h1
-        className="mt-6 animate-fade-up text-5xl leading-[1.05] sm:text-7xl md:text-8xl"
-        style={{ animationDelay: "0.15s" }}
-      >
-        <span className="shimmer-text font-medium">Happy Birthday,</span>
-        <br />
-        <span
-          className="text-accent"
-          style={{ fontFamily: "var(--font-script)" }}
-        >
-          Shrishti
-        </span>
-        <span className="ml-2 inline-block animate-heartbeat">🎂</span>
+      <h1 className="mt-6 flex flex-wrap items-end justify-center gap-x-1 gap-y-3 sm:gap-x-2">
+        <span className="sr-only">Happy Birthday Shrishti</span>
+        {"HAPPY BIRTHDAY SHRISHTI".split("").map((ch, i) => {
+          if (ch === " ") return <span key={i} className="w-3 sm:w-5" aria-hidden />;
+          const floatDelay = i * 0.12;
+          const bobDelay = (i % 5) * 0.4;
+          return (
+            <span
+              key={i}
+              aria-hidden
+              className="balloon-letter"
+              style={{
+                animationDelay: `${floatDelay}s, ${1.6 + bobDelay}s`,
+              }}
+            >
+              <span className="balloon-string" />
+              <span className="balloon-glyph">{ch}</span>
+            </span>
+          );
+        })}
       </h1>
 
       <p
