@@ -42,7 +42,13 @@ export function Cake() {
               const dist = 120 + (i % 5) * 30;
               const tx = Math.cos(angle) * dist;
               const ty = Math.sin(angle) * dist - 60;
-              const colors = ["#e88aab", "#f8c8d8", "#c45c7c", "#fce5ee", "#ffd1dc"];
+              const colors = [
+                "#e88aab",
+                "#f8c8d8",
+                "#c45c7c",
+                "#fce5ee",
+                "#ffd1dc",
+              ];
               const c = colors[i % colors.length];
               return (
                 <span
@@ -96,16 +102,52 @@ export function Cake() {
           </defs>
 
           {/* Plate */}
-          <ellipse cx="140" cy="252" rx="118" ry="12" fill="#c45c7c" opacity="0.25" />
-          <ellipse cx="140" cy="248" rx="115" ry="10" fill="#fff" opacity="0.9" />
+          <ellipse
+            cx="140"
+            cy="252"
+            rx="118"
+            ry="12"
+            fill="#c45c7c"
+            opacity="0.25"
+          />
+          <ellipse
+            cx="140"
+            cy="248"
+            rx="115"
+            ry="10"
+            fill="#fff"
+            opacity="0.9"
+          />
           <ellipse cx="140" cy="246" rx="115" ry="8" fill="#fce5ee" />
 
           {/* ---------- Bottom tier ---------- */}
-          <rect x="38" y="178" width="204" height="70" rx="10" fill="url(#cakeBody)" />
+          <rect
+            x="38"
+            y="178"
+            width="204"
+            height="70"
+            rx="10"
+            fill="url(#cakeBody)"
+          />
           {/* horizontal cream stripe */}
-          <rect x="38" y="212" width="204" height="6" fill="#fff" opacity="0.55" />
+          <rect
+            x="38"
+            y="212"
+            width="204"
+            height="6"
+            fill="#fff"
+            opacity="0.55"
+          />
           {/* shading */}
-          <rect x="38" y="178" width="204" height="70" rx="10" fill="#000" opacity="0.04" />
+          <rect
+            x="38"
+            y="178"
+            width="204"
+            height="70"
+            rx="10"
+            fill="#000"
+            opacity="0.04"
+          />
           {/* drippy frosting top */}
           <path
             d="M38 182
@@ -119,19 +161,56 @@ export function Cake() {
             fill="url(#frosting)"
           />
           {/* drip blobs */}
-          {[[72, 207], [110, 210], [150, 212], [188, 210], [224, 207]].map(([x, y], i) => (
+          {[
+            [72, 207],
+            [110, 210],
+            [150, 212],
+            [188, 210],
+            [224, 207],
+          ].map(([x, y], i) => (
             <circle key={i} cx={x} cy={y} r="4" fill="#fff" opacity="0.85" />
           ))}
           {/* sprinkles on bottom tier */}
-          {[[60,225,0],[80,232,40],[105,222,-20],[135,230,15],[165,222,-35],[195,232,25],[220,225,-10]].map(([x,y,r],i) => (
-            <rect key={i} x={x as number} y={y as number} width="6" height="2.4" rx="1.2"
-              fill={["#c45c7c","#e88aab","#a78bfa","#f0d78c","#6ec1c1"][i % 5]}
-              transform={`rotate(${r} ${x} ${y})`} />
+          {[
+            [60, 225, 0],
+            [80, 232, 40],
+            [105, 222, -20],
+            [135, 230, 15],
+            [165, 222, -35],
+            [195, 232, 25],
+            [220, 225, -10],
+          ].map(([x, y, r], i) => (
+            <rect
+              key={i}
+              x={x as number}
+              y={y as number}
+              width="6"
+              height="2.4"
+              rx="1.2"
+              fill={
+                ["#c45c7c", "#e88aab", "#a78bfa", "#f0d78c", "#6ec1c1"][i % 5]
+              }
+              transform={`rotate(${r} ${x} ${y})`}
+            />
           ))}
 
           {/* ---------- Middle tier ---------- */}
-          <rect x="68" y="128" width="144" height="56" rx="8" fill="url(#cakeBodyMid)" />
-          <rect x="68" y="156" width="144" height="5" fill="#fff" opacity="0.55" />
+          <rect
+            x="68"
+            y="128"
+            width="144"
+            height="56"
+            rx="8"
+            fill="url(#cakeBodyMid)"
+          />
+          <rect
+            x="68"
+            y="156"
+            width="144"
+            height="5"
+            fill="#fff"
+            opacity="0.55"
+          />
           <path
             d="M68 132
                Q85 152 102 138
@@ -149,15 +228,41 @@ export function Cake() {
             </g>
           ))}
           {/* sprinkles on middle tier */}
-          {[[85,170,20],[115,164,-25],[150,172,10],[180,164,-15]].map(([x,y,r],i) => (
-            <rect key={i} x={x as number} y={y as number} width="5" height="2" rx="1"
-              fill={["#c45c7c","#a78bfa","#6ec1c1","#f0d78c"][i % 4]}
-              transform={`rotate(${r} ${x} ${y})`} />
+          {[
+            [85, 170, 20],
+            [115, 164, -25],
+            [150, 172, 10],
+            [180, 164, -15],
+          ].map(([x, y, r], i) => (
+            <rect
+              key={i}
+              x={x as number}
+              y={y as number}
+              width="5"
+              height="2"
+              rx="1"
+              fill={["#c45c7c", "#a78bfa", "#6ec1c1", "#f0d78c"][i % 4]}
+              transform={`rotate(${r} ${x} ${y})`}
+            />
           ))}
 
           {/* ---------- Top tier ---------- */}
-          <rect x="95" y="82" width="90" height="48" rx="6" fill="url(#cakeBodyTop)" />
-          <rect x="95" y="106" width="90" height="4" fill="#fff" opacity="0.5" />
+          <rect
+            x="95"
+            y="82"
+            width="90"
+            height="48"
+            rx="6"
+            fill="url(#cakeBodyTop)"
+          />
+          <rect
+            x="95"
+            y="106"
+            width="90"
+            height="4"
+            fill="#fff"
+            opacity="0.5"
+          />
           <path
             d="M95 86
                Q108 102 122 90
@@ -177,8 +282,21 @@ export function Cake() {
           {[110, 140, 170].map((x, i) => (
             <g key={i}>
               <circle cx={x} cy="84" r="4.5" fill="url(#cherry)" />
-              <path d={`M${x} 80 q2 -6 6 -8`} stroke="#5a8a3a" strokeWidth="1.4" fill="none" strokeLinecap="round" />
-              <ellipse cx={x - 1.5} cy="83" rx="1" ry="0.6" fill="#fff" opacity="0.7" />
+              <path
+                d={`M${x} 80 q2 -6 6 -8`}
+                stroke="#5a8a3a"
+                strokeWidth="1.4"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <ellipse
+                cx={x - 1.5}
+                cy="83"
+                rx="1"
+                ry="0.6"
+                fill="#fff"
+                opacity="0.7"
+              />
             </g>
           ))}
 
@@ -186,19 +304,70 @@ export function Cake() {
           {[115, 140, 165].map((x) => (
             <g key={x}>
               {/* candle body with stripes */}
-              <rect x={x - 3.5} y="50" width="7" height="32" rx="1.5" fill="#fff" stroke="#e88aab" strokeWidth="1" />
-              <rect x={x - 3.5} y="54" width="7" height="3" fill="#e88aab" opacity="0.85" />
-              <rect x={x - 3.5} y="62" width="7" height="3" fill="#c45c7c" opacity="0.8" />
-              <rect x={x - 3.5} y="70" width="7" height="3" fill="#e88aab" opacity="0.85" />
+              <rect
+                x={x - 3.5}
+                y="50"
+                width="7"
+                height="32"
+                rx="1.5"
+                fill="#fff"
+                stroke="#e88aab"
+                strokeWidth="1"
+              />
+              <rect
+                x={x - 3.5}
+                y="54"
+                width="7"
+                height="3"
+                fill="#e88aab"
+                opacity="0.85"
+              />
+              <rect
+                x={x - 3.5}
+                y="62"
+                width="7"
+                height="3"
+                fill="#c45c7c"
+                opacity="0.8"
+              />
+              <rect
+                x={x - 3.5}
+                y="70"
+                width="7"
+                height="3"
+                fill="#e88aab"
+                opacity="0.85"
+              />
               {/* drip down candle */}
-              <path d={`M${x - 3.5} 80 q3.5 4 7 0 L${x + 3.5} 82 L${x - 3.5} 82 Z`} fill="#fff" />
+              <path
+                d={`M${x - 3.5} 80 q3.5 4 7 0 L${x + 3.5} 82 L${x - 3.5} 82 Z`}
+                fill="#fff"
+              />
               {/* wick */}
-              <line x1={x} y1="50" x2={x} y2="44" stroke="#3a2a2a" strokeWidth="1.4" strokeLinecap="round" />
+              <line
+                x1={x}
+                y1="50"
+                x2={x}
+                y2="44"
+                stroke="#3a2a2a"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+              />
               {/* flame */}
               {!blown && (
-                <g className="animate-flicker" style={{ transformOrigin: `${x}px 44px` }}>
+                <g
+                  className="animate-flicker"
+                  style={{ transformOrigin: `${x}px 44px` }}
+                >
                   <ellipse cx={x} cy="36" rx="5" ry="9" fill="url(#flame)" />
-                  <ellipse cx={x} cy="38" rx="2.4" ry="5" fill="#fff6c2" opacity="0.95" />
+                  <ellipse
+                    cx={x}
+                    cy="38"
+                    rx="2.4"
+                    ry="5"
+                    fill="#fff6c2"
+                    opacity="0.95"
+                  />
                   <circle cx={x} cy="34" r="1.6" fill="#fff" opacity="0.9" />
                 </g>
               )}
@@ -219,7 +388,9 @@ export function Cake() {
 
       <div
         className={`mt-10 transition-all duration-700 ${
-          blown ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
+          blown
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-3 opacity-0"
         }`}
       >
         <p

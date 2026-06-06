@@ -9,8 +9,6 @@ import m7 from "@/assets/Shushh8.jpeg";
 import m8 from "@/assets/Shushh9.jpeg";
 import m9 from "@/assets/Shushhh11.jpeg";
 
-
-
 const ITEMS = [
   { src: m1, caption: "sunlit & smiling", rot: -4 },
   { src: m6, caption: "flower-in-your-hair kind of day", rot: 2 },
@@ -38,7 +36,8 @@ export function Memories() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setPlaying(false);
       if (e.key === "ArrowRight") setIndex((i) => (i + 1) % ITEMS.length);
-      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + ITEMS.length) % ITEMS.length);
+      if (e.key === "ArrowLeft")
+        setIndex((i) => (i - 1 + ITEMS.length) % ITEMS.length);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -47,14 +46,19 @@ export function Memories() {
   return (
     <section className="relative z-10 mx-auto max-w-6xl px-6 py-24">
       <div className="mb-10 text-center">
-        <p className="text-sm uppercase tracking-[0.4em] text-accent/80">moments</p>
+        <p className="text-sm uppercase tracking-[0.4em] text-accent/80">
+          moments
+        </p>
         <h2 className="mt-3 text-4xl sm:text-5xl">a tiny gallery of you</h2>
         <p className="mx-auto mt-4 max-w-md text-sm text-foreground/60">
           a few of my favourites ✨
         </p>
         <button
           type="button"
-          onClick={() => { setIndex(0); setPlaying(true); }}
+          onClick={() => {
+            setIndex(0);
+            setPlaying(true);
+          }}
           className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground shadow-[0_10px_25px_-10px_rgba(196,92,124,0.6)] transition-transform hover:scale-105"
         >
           ▶ play slideshow
@@ -67,7 +71,10 @@ export function Memories() {
             key={i}
             className="mx-auto w-full max-w-[280px] cursor-pointer rounded-sm bg-white p-3 pb-12 shadow-[0_15px_30px_-15px_rgba(196,92,124,0.4)] transition-all duration-500 hover:rotate-0 hover:scale-105 hover:shadow-[0_25px_50px_-20px_rgba(196,92,124,0.5)]"
             style={{ transform: `rotate(${it.rot}deg)` }}
-            onClick={() => { setIndex(i); setPlaying(true); }}
+            onClick={() => {
+              setIndex(i);
+              setPlaying(true);
+            }}
           >
             <div className="relative overflow-hidden bg-secondary/30">
               <img
@@ -117,7 +124,10 @@ function Slideshow({
       {/* close */}
       <button
         type="button"
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
         className="absolute right-6 top-6 z-10 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur transition hover:bg-white/20"
       >
         close ✕
@@ -126,7 +136,10 @@ function Slideshow({
       {/* prev */}
       <button
         type="button"
-        onClick={(e) => { e.stopPropagation(); setIndex((i) => (i - 1 + ITEMS.length) % ITEMS.length); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIndex((i) => (i - 1 + ITEMS.length) % ITEMS.length);
+        }}
         className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white backdrop-blur transition hover:scale-110 hover:bg-white/20 sm:left-8"
         aria-label="Previous"
       >
@@ -136,7 +149,10 @@ function Slideshow({
       {/* next */}
       <button
         type="button"
-        onClick={(e) => { e.stopPropagation(); setIndex((i) => (i + 1) % ITEMS.length); }}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIndex((i) => (i + 1) % ITEMS.length);
+        }}
         className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white backdrop-blur transition hover:scale-110 hover:bg-white/20 sm:right-8"
         aria-label="Next"
       >
@@ -152,7 +168,9 @@ function Slideshow({
           <figure
             key={i}
             className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-out ${
-              i === index ? "opacity-100 scale-100" : "pointer-events-none opacity-0 scale-95"
+              i === index
+                ? "opacity-100 scale-100"
+                : "pointer-events-none opacity-0 scale-95"
             }`}
           >
             <div className="relative max-h-[65vh] overflow-hidden rounded-sm bg-white p-3 shadow-[0_30px_80px_-20px_rgba(196,92,124,0.5)]">
@@ -178,7 +196,10 @@ function Slideshow({
           <button
             key={i}
             type="button"
-            onClick={(e) => { e.stopPropagation(); setIndex(() => i); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIndex(() => i);
+            }}
             className={`h-2 rounded-full transition-all ${
               i === index ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/70"
             }`}

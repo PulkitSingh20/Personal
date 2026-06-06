@@ -4,7 +4,14 @@ import floral from "@/assets/hero-floral.jpg";
 
 const SPARKLES = Array.from({ length: 28 });
 const BURST = Array.from({ length: 36 });
-const COLORS = ["#e88aab", "#f8c8d8", "#c45c7c", "#fce5ee", "#ffd1dc", "#ffffff"];
+const COLORS = [
+  "#e88aab",
+  "#f8c8d8",
+  "#c45c7c",
+  "#fce5ee",
+  "#ffd1dc",
+  "#ffffff",
+];
 
 export function Hero() {
   const [burstId, setBurstId] = useState(0);
@@ -22,7 +29,9 @@ export function Hero() {
   return (
     <section
       className={`relative z-10 flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 text-center transition-all duration-700 ease-out ${
-        leaving ? "-translate-y-6 opacity-0 blur-sm" : "translate-y-0 opacity-100"
+        leaving
+          ? "-translate-y-6 opacity-0 blur-sm"
+          : "translate-y-0 opacity-100"
       }`}
     >
       {/* Floral background */}
@@ -75,14 +84,14 @@ export function Hero() {
         <span
           className="inline-block animate-bounce select-none text-4xl sm:text-5xl"
           style={{
-            fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif',
-            animationDuration: '2.5s'
+            fontFamily:
+              '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif',
+            animationDuration: "2.5s",
           }}
         >
           🎂
         </span>
       </h1>
-
 
       <p
         className="mt-8 max-w-xl animate-fade-up text-base text-foreground/75 sm:text-lg"
@@ -134,7 +143,9 @@ export function Hero() {
           style={{ animationDelay: "0.55s" }}
         >
           Blow the Candles
-          <span className="transition-transform group-hover:translate-x-1">→</span>
+          <span className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
         </button>
 
         {/* Spotify Embedded Bar */}

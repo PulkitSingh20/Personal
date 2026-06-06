@@ -2,7 +2,10 @@ const PETALS = Array.from({ length: 22 });
 
 export function Petals() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
+    <div
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+      aria-hidden
+    >
       {PETALS.map((_, i) => {
         const left = (i * 4.7) % 100;
         const delay = (i % 10) * 1.3;

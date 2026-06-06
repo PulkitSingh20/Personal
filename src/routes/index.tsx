@@ -14,7 +14,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Happy Birthday, Shrishti 🌸" },
       {
         property: "og:description",
-        content: "A little something, made just for you — with petals, candles, and a wish or two.",
+        content:
+          "A little something, made just for you — with petals, candles, and a wish or two.",
       },
       { property: "og:type", content: "website" },
     ],
