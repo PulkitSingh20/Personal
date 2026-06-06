@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Petals } from "@/components/birthday/Petals";
 import { Hero } from "@/components/birthday/Hero";
-import { MusicPlayer } from "@/components/birthday/MusicPlayer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,7 +35,6 @@ function BirthdayPage() {
     <main className="relative min-h-screen overflow-hidden">
       <Petals />
       <Hero />
-      <MusicPlayer />
     </main>
   );
 }

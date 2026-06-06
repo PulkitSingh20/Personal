@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
-import m1 from "@/assets/shushh1.jpeg.asset.json";
-import m2 from "@/assets/shushh6.jpeg.asset.json";
-import m3 from "@/assets/shushh5.jpeg.asset.json";
-import m4 from "@/assets/shushh3.jpeg.asset.json";
-import m5 from "@/assets/shushh7.jpeg.asset.json";
-import m6 from "@/assets/shushh10.jpeg.asset.json";
-import m7 from "@/assets/shushh8.jpeg.asset.json";
-import m8 from "@/assets/shushh9.jpeg.asset.json";
+import m1 from "@/assets/Shushh1.jpeg";
+import m2 from "@/assets/Shusshh6.jpeg";
+import m3 from "@/assets/Shushh5.jpeg";
+import m4 from "@/assets/Shushh3.jpeg";
+import m5 from "@/assets/Shushh 7.jpeg";
+import m6 from "@/assets/Shushh 10.jpeg";
+import m7 from "@/assets/Shushh8.jpeg";
+import m8 from "@/assets/Shushh9.jpeg";
+import m9 from "@/assets/Shushhh11.jpeg";
 
 
 
 const ITEMS = [
-  { src: m1.url, caption: "sunlit & smiling", rot: -4 },
-  { src: m6.url, caption: "flower-in-your-hair kind of day", rot: 2 },
-  { src: m2.url, caption: "petals & you", rot: 3 },
-  { src: m7.url, caption: "soft, just you", rot: -3 },
-  { src: m3.url, caption: "golden hour, you", rot: -2 },
-  { src: m8.url, caption: "hearts everywhere ♡", rot: 4 },
-  { src: m4.url, caption: "that little smile", rot: 4 },
-  { src: m5.url, caption: "warm light, warmer you", rot: -3 },
+  { src: m1, caption: "sunlit & smiling", rot: -4 },
+  { src: m6, caption: "flower-in-your-hair kind of day", rot: 2 },
+  { src: m2, caption: "petals & you", rot: 3 },
+  { src: m7, caption: "soft, just you", rot: -3 },
+  { src: m3, caption: "golden hour, you", rot: -2 },
+  { src: m8, caption: "hearts everywhere ♡", rot: 4 },
+  { src: m4, caption: "that little smile", rot: 4 },
+  { src: m5, caption: "warm light, warmer you", rot: -3 },
+  { src: m9, caption: "laughter & light ✨", rot: 2 },
 ];
 
 export function Memories() {

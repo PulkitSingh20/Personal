@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import floral from "@/assets/hero-floral.jpg.asset.json";
+import floral from "@/assets/hero-floral.jpg";
 
 const SPARKLES = Array.from({ length: 28 });
 const BURST = Array.from({ length: 36 });
@@ -28,7 +28,7 @@ export function Hero() {
       {/* Floral background */}
       <div className="absolute inset-0 -z-10">
         <img
-          src={floral.url}
+          src={floral}
           alt=""
           aria-hidden
           className="h-full w-full object-cover"
@@ -70,8 +70,17 @@ export function Hero() {
         a little something, just for you
       </p>
 
-      <h1 className="mt-6 animate-fade-up text-5xl font-semibold leading-tight shimmer-text sm:text-6xl md:text-7xl">
-        Happy Birthday, Shrishti 🎂
+      <h1 className="mt-6 animate-fade-up text-5xl font-semibold leading-tight sm:text-6xl md:text-7xl">
+        <span className="shimmer-text">Happy Birthday, Shrishti</span>{" "}
+        <span
+          className="inline-block animate-bounce select-none text-4xl sm:text-5xl"
+          style={{
+            fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif',
+            animationDuration: '2.5s'
+          }}
+        >
+          🎂
+        </span>
       </h1>
 
 
@@ -82,7 +91,7 @@ export function Hero() {
         A special day for a truly special person.
       </p>
 
-      <div className="relative mt-12">
+      <div className="relative mt-12 flex flex-col items-center gap-8">
         {/* Confetti + sparkle burst, re-keyed on each click */}
         {burstId > 0 && (
           <div
@@ -124,9 +133,26 @@ export function Hero() {
           className="group inline-flex animate-fade-up items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-medium tracking-wide text-primary-foreground shadow-[0_15px_40px_-10px_rgba(196,92,124,0.65)] transition-all hover:scale-105 hover:shadow-[0_20px_50px_-10px_rgba(196,92,124,0.8)] sm:text-base"
           style={{ animationDelay: "0.55s" }}
         >
-          Open My Wishes
+          Blow the Candles
           <span className="transition-transform group-hover:translate-x-1">→</span>
         </button>
+
+        {/* Spotify Embedded Bar */}
+        <div
+          className="w-full max-w-[320px] animate-fade-up rounded-2xl border border-secondary/60 bg-card/50 p-1.5 shadow-[0_10px_30px_-15px_rgba(196,92,124,0.3)] backdrop-blur transition-all duration-300 hover:shadow-[0_15px_40px_-15px_rgba(196,92,124,0.4)]"
+          style={{ animationDelay: "0.75s" }}
+        >
+          <iframe
+            title="Birthday Spotify Track"
+            src="https://open.spotify.com/embed/track/6c4Po8zyQjB4cR5XgLhcGb?utm_source=generator&theme=0"
+            width="100%"
+            height="80"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            className="rounded-xl"
+          />
+        </div>
       </div>
     </section>
   );

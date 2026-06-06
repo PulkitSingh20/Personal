@@ -5,6 +5,17 @@ export function Cake() {
 
   const confetti = Array.from({ length: 28 });
 
+  const handleBlow = () => {
+    if (blown) return;
+    setBlown(true);
+    setTimeout(() => {
+      const nextSection = document.getElementById("reasons");
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 1600);
+  };
+
   return (
     <section
       id="cake"
@@ -19,7 +30,7 @@ export function Cake() {
 
       <button
         type="button"
-        onClick={() => setBlown(true)}
+        onClick={handleBlow}
         aria-label="Blow out the candles"
         className="group relative mt-12 cursor-pointer outline-none"
       >

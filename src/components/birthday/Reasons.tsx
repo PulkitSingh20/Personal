@@ -9,7 +9,7 @@ const REASONS = [
 
 export function Reasons() {
   return (
-    <section className="relative z-10 mx-auto max-w-6xl px-6 py-24">
+    <section id="reasons" className="relative z-10 mx-auto max-w-6xl px-6 py-24">
       <div className="mb-14 text-center">
         <p className="text-sm uppercase tracking-[0.4em] text-accent/80">a small list</p>
         <h2 className="mt-3 text-4xl sm:text-5xl">
