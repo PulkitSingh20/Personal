@@ -50,52 +50,151 @@ export function Cake() {
 
         {/* Cake SVG */}
         <svg
-          width="260"
-          height="260"
-          viewBox="0 0 260 260"
-          className="drop-shadow-[0_20px_40px_rgba(196,92,124,0.25)] transition-transform group-hover:scale-105"
+          width="280"
+          height="300"
+          viewBox="0 0 280 300"
+          className="drop-shadow-[0_24px_50px_rgba(196,92,124,0.3)] transition-transform group-hover:scale-105"
         >
+          <defs>
+            <linearGradient id="cakeBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#fff0f5" />
+              <stop offset="100%" stopColor="#f6c9d8" />
+            </linearGradient>
+            <linearGradient id="cakeBodyMid" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#fff5f8" />
+              <stop offset="100%" stopColor="#f0b6cb" />
+            </linearGradient>
+            <linearGradient id="cakeBodyTop" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#fff8fb" />
+              <stop offset="100%" stopColor="#e88aab" />
+            </linearGradient>
+            <linearGradient id="frosting" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#fce5ee" />
+            </linearGradient>
+            <radialGradient id="cherry" cx="0.35" cy="0.35" r="0.7">
+              <stop offset="0%" stopColor="#ff8aa1" />
+              <stop offset="60%" stopColor="#d63a5d" />
+              <stop offset="100%" stopColor="#8e1a36" />
+            </radialGradient>
+            <radialGradient id="flame" cx="0.5" cy="0.7" r="0.6">
+              <stop offset="0%" stopColor="#fff6c2" />
+              <stop offset="60%" stopColor="#ffb347" />
+              <stop offset="100%" stopColor="#ff6b3d" />
+            </radialGradient>
+          </defs>
+
           {/* Plate */}
-          <ellipse cx="130" cy="225" rx="105" ry="12" fill="#f8c8d8" opacity="0.7" />
+          <ellipse cx="140" cy="252" rx="118" ry="12" fill="#c45c7c" opacity="0.25" />
+          <ellipse cx="140" cy="248" rx="115" ry="10" fill="#fff" opacity="0.9" />
+          <ellipse cx="140" cy="246" rx="115" ry="8" fill="#fce5ee" />
 
-          {/* Bottom tier */}
-          <rect x="40" y="160" width="180" height="60" rx="8" fill="#fff5f8" stroke="#e88aab" strokeWidth="1.5" />
-          {/* drips */}
-          <path d="M40 168 Q60 185 80 168 Q100 188 120 168 Q140 185 160 168 Q180 188 200 168 Q210 180 220 168 L220 160 L40 160 Z" fill="#e88aab" />
-
-          {/* Middle tier */}
-          <rect x="65" y="115" width="130" height="50" rx="6" fill="#fff5f8" stroke="#e88aab" strokeWidth="1.5" />
-          <path d="M65 122 Q85 138 105 122 Q125 140 145 122 Q165 138 185 122 Q190 130 195 122 L195 115 L65 115 Z" fill="#f8c8d8" />
-
-          {/* Top tier */}
-          <rect x="90" y="78" width="80" height="40" rx="5" fill="#fff5f8" stroke="#e88aab" strokeWidth="1.5" />
-          <path d="M90 84 Q105 95 120 84 Q135 96 150 84 Q160 92 170 84 L170 78 L90 78 Z" fill="#c45c7c" />
-
-          {/* Sprinkles */}
-          {[[55,180],[90,200],[150,190],[195,180],[80,140],[155,135],[105,95],[145,100]].map(([x,y],i) => (
-            <circle key={i} cx={x} cy={y} r="2" fill={["#c45c7c","#e88aab","#fff","#f8c8d8"][i % 4]} />
+          {/* ---------- Bottom tier ---------- */}
+          <rect x="38" y="178" width="204" height="70" rx="10" fill="url(#cakeBody)" />
+          {/* horizontal cream stripe */}
+          <rect x="38" y="212" width="204" height="6" fill="#fff" opacity="0.55" />
+          {/* shading */}
+          <rect x="38" y="178" width="204" height="70" rx="10" fill="#000" opacity="0.04" />
+          {/* drippy frosting top */}
+          <path
+            d="M38 182
+               Q55 205 72 188
+               Q90 215 110 190
+               Q130 218 150 188
+               Q170 215 188 190
+               Q206 215 224 188
+               Q236 200 242 184
+               L242 178 L38 178 Z"
+            fill="url(#frosting)"
+          />
+          {/* drip blobs */}
+          {[[72, 207], [110, 210], [150, 212], [188, 210], [224, 207]].map(([x, y], i) => (
+            <circle key={i} cx={x} cy={y} r="4" fill="#fff" opacity="0.85" />
+          ))}
+          {/* sprinkles on bottom tier */}
+          {[[60,225,0],[80,232,40],[105,222,-20],[135,230,15],[165,222,-35],[195,232,25],[220,225,-10]].map(([x,y,r],i) => (
+            <rect key={i} x={x as number} y={y as number} width="6" height="2.4" rx="1.2"
+              fill={["#c45c7c","#e88aab","#a78bfa","#f0d78c","#6ec1c1"][i % 5]}
+              transform={`rotate(${r} ${x} ${y})`} />
           ))}
 
-          {/* Candles */}
-          {[110, 130, 150].map((x) => (
+          {/* ---------- Middle tier ---------- */}
+          <rect x="68" y="128" width="144" height="56" rx="8" fill="url(#cakeBodyMid)" />
+          <rect x="68" y="156" width="144" height="5" fill="#fff" opacity="0.55" />
+          <path
+            d="M68 132
+               Q85 152 102 138
+               Q120 158 140 138
+               Q160 158 178 138
+               Q195 152 212 132
+               L212 128 L68 128 Z"
+            fill="url(#frosting)"
+          />
+          {/* piped rosettes around top edge */}
+          {[78, 102, 126, 154, 178, 202].map((x, i) => (
+            <g key={i}>
+              <circle cx={x} cy="132" r="5" fill="#fff" />
+              <circle cx={x} cy="132" r="2.4" fill="#f8c8d8" />
+            </g>
+          ))}
+          {/* sprinkles on middle tier */}
+          {[[85,170,20],[115,164,-25],[150,172,10],[180,164,-15]].map(([x,y,r],i) => (
+            <rect key={i} x={x as number} y={y as number} width="5" height="2" rx="1"
+              fill={["#c45c7c","#a78bfa","#6ec1c1","#f0d78c"][i % 4]}
+              transform={`rotate(${r} ${x} ${y})`} />
+          ))}
+
+          {/* ---------- Top tier ---------- */}
+          <rect x="95" y="82" width="90" height="48" rx="6" fill="url(#cakeBodyTop)" />
+          <rect x="95" y="106" width="90" height="4" fill="#fff" opacity="0.5" />
+          <path
+            d="M95 86
+               Q108 102 122 90
+               Q140 108 158 90
+               Q172 102 185 86
+               L185 82 L95 82 Z"
+            fill="url(#frosting)"
+          />
+          {/* rosettes on top tier */}
+          {[105, 125, 145, 165].map((x, i) => (
+            <g key={i}>
+              <circle cx={x} cy="86" r="4" fill="#fff" />
+              <circle cx={x} cy="86" r="1.8" fill="#e88aab" />
+            </g>
+          ))}
+          {/* cherries on top edge */}
+          {[110, 140, 170].map((x, i) => (
+            <g key={i}>
+              <circle cx={x} cy="84" r="4.5" fill="url(#cherry)" />
+              <path d={`M${x} 80 q2 -6 6 -8`} stroke="#5a8a3a" strokeWidth="1.4" fill="none" strokeLinecap="round" />
+              <ellipse cx={x - 1.5} cy="83" rx="1" ry="0.6" fill="#fff" opacity="0.7" />
+            </g>
+          ))}
+
+          {/* ---------- Candles ---------- */}
+          {[115, 140, 165].map((x) => (
             <g key={x}>
-              <rect x={x - 3} y="50" width="6" height="28" rx="1" fill="#fff" stroke="#e88aab" strokeWidth="1" />
-              <rect x={x - 3} y="55" width="6" height="2" fill="#e88aab" />
-              <rect x={x - 3} y="62" width="6" height="2" fill="#e88aab" />
-              <rect x={x - 3} y="69" width="6" height="2" fill="#e88aab" />
+              {/* candle body with stripes */}
+              <rect x={x - 3.5} y="50" width="7" height="32" rx="1.5" fill="#fff" stroke="#e88aab" strokeWidth="1" />
+              <rect x={x - 3.5} y="54" width="7" height="3" fill="#e88aab" opacity="0.85" />
+              <rect x={x - 3.5} y="62" width="7" height="3" fill="#c45c7c" opacity="0.8" />
+              <rect x={x - 3.5} y="70" width="7" height="3" fill="#e88aab" opacity="0.85" />
+              {/* drip down candle */}
+              <path d={`M${x - 3.5} 80 q3.5 4 7 0 L${x + 3.5} 82 L${x - 3.5} 82 Z`} fill="#fff" />
               {/* wick */}
-              <line x1={x} y1="50" x2={x} y2="46" stroke="#3a2a2a" strokeWidth="1" />
+              <line x1={x} y1="50" x2={x} y2="44" stroke="#3a2a2a" strokeWidth="1.4" strokeLinecap="round" />
               {/* flame */}
               {!blown && (
-                <g className="animate-flicker" style={{ transformOrigin: `${x}px 46px` }}>
-                  <ellipse cx={x} cy="40" rx="4" ry="7" fill="#ffb347" />
-                  <ellipse cx={x} cy="42" rx="2.2" ry="4" fill="#fff3a8" />
+                <g className="animate-flicker" style={{ transformOrigin: `${x}px 44px` }}>
+                  <ellipse cx={x} cy="36" rx="5" ry="9" fill="url(#flame)" />
+                  <ellipse cx={x} cy="38" rx="2.4" ry="5" fill="#fff6c2" opacity="0.95" />
+                  <circle cx={x} cy="34" r="1.6" fill="#fff" opacity="0.9" />
                 </g>
               )}
               {/* smoke */}
               {blown && (
                 <path
-                  d={`M${x} 46 q4 -8 -2 -14 q-6 -6 2 -14`}
+                  d={`M${x} 44 q4 -8 -2 -14 q-6 -6 2 -14`}
                   stroke="#c9b9be"
                   strokeWidth="1.4"
                   fill="none"
