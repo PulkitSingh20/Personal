@@ -70,27 +70,10 @@ export function Hero() {
         a little something, just for you
       </p>
 
-      <h1 className="mt-6 flex flex-wrap items-end justify-center gap-x-1 gap-y-3 sm:gap-x-2">
-        <span className="sr-only">Happy Birthday Shrishti</span>
-        {"HAPPY BIRTHDAY SHRISHTI".split("").map((ch, i) => {
-          if (ch === " ") return <span key={i} className="w-3 sm:w-5" aria-hidden />;
-          const floatDelay = i * 0.12;
-          const bobDelay = (i % 5) * 0.4;
-          return (
-            <span
-              key={i}
-              aria-hidden
-              className="balloon-letter"
-              style={{
-                animationDelay: `${floatDelay}s, ${1.6 + bobDelay}s`,
-              }}
-            >
-              <span className="balloon-string" />
-              <span className="balloon-glyph">{ch}</span>
-            </span>
-          );
-        })}
+      <h1 className="mt-6 animate-fade-up text-5xl font-semibold leading-tight shimmer-text sm:text-6xl md:text-7xl">
+        Happy Birthday, Shrishti 🎂
       </h1>
+
 
       <p
         className="mt-8 max-w-xl animate-fade-up text-base text-foreground/75 sm:text-lg"
